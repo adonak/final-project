@@ -1,0 +1,12 @@
+#map {
+    margin: auto;
+    height: 500px;
+    width: 95%;
+}
+
+.custom-tooltip {
+    background: white;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
