@@ -1,8 +1,23 @@
-#map {
-    margin: auto;
-    height: 500px;
-    width: 95%;
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
 }
+
+#map {
+    flex: 1;
+    height: 100%;
+}
+
+#info-panel {
+    flex: 0 0 300px; /* Fixed width for the info-panel */
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add your additional styling for #info-panel or other elements here */
+
 
 .custom-tooltip {
     background: white;
@@ -10,3 +25,40 @@
     border: 1px solid #ccc;
     border-radius: 3px;
 }
+
+.clear-selection-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+#selected-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+            
+/* .custom-tooltip {
+    margin: 0 20px 0 0;
+    position: absolute;
+    height: 50px;
+    min-width: 100px;
+    color: #fff;
+    background-color: #000;
+    border: solid thin #fff;
+    padding: 5px 10px;
+    top: -75px;
+}
+
+.custom-tooltip h1 {
+    margin: 0 20px 0 0;
+    padding: 0;
+    display: inline-block;
+    line-height: 1em;
+} */

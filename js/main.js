@@ -5,7 +5,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-var geojsonLayer; // Declare geojsonLayer outside the Promise.all block
+var geojsonLayer; // declare geojsonLayer outside the Promise.all block
+var selectedFeatures = new Set(); // Set to store selected features
 
 // load topojson and csv data
 Promise.all([
@@ -35,35 +36,49 @@ Promise.all([
         },
         onEachFeature: function (feature, layer) {
             // Add click event listener
-            layer.on('click', function (event) {
-                // Remove highlight from the last clicked layer
-                if (lastClickedLayer) {
-                    resetHighlight(lastClickedLayer);
+            layer.on('click', function () {
+                // Toggle the selected state of the feature
+                if (selectedFeatures.has(feature)) {
+                    selectedFeatures.delete(feature);
+                } else {
+                    selectedFeatures.add(feature);
                 }
 
-                // Highlight the current clicked layer
-                highlightFeature(event.target);
-
-                // Update the last clicked layer
-                lastClickedLayer = event.target;
+                // Update the highlight
+                updateHighlight();
             });
 
-            // Add hover event listener
+            // add hover event listener
             layer.on('mouseover', function (event) {
-                showLabel(event.latlng, feature.properties.GEOID);
+                showLabel(event.latlng, '<p><b> Census tract: ' + '</b>' +feature.properties.GEOID + '</p>');
             });
 
-            // Remove label on mouseout
+            // remove label on mouseout
             layer.on('mouseout', function () {
                 hideLabel();
             });
         }
     }).addTo(map);
-}).catch(function(error) {
-    // errors
-    console.error('Error loading data:', error);
 });
 
+// Function to update the highlight
+function updateHighlight() {
+    geojsonLayer.eachLayer(function (layer) {
+        if (selectedFeatures.has(layer.feature)) {
+            // Highlight selected features
+            layer.setStyle({ fillColor: 'blue', color: 'black' });
+        } else {
+            // Reset the style for non-selected features
+            layer.setStyle({ fillColor: 'green', weight: 0.25, opacity: 1, color: 'white', fillOpacity: 0.7 });
+        }
+    });
+
+    // Update the selected features list
+    updateSelectedList();
+}
+
+
+var tooltip; // Declare tooltip variable
 var lastClickedLayer; // Variable to store the last clicked layer
 
 // Function to highlight a feature
@@ -80,9 +95,6 @@ function highlightFeature(layer) {
 function resetHighlight(layer) {
     geojsonLayer.resetStyle(layer);
 }
-
-// ...
-
 
 // Function to show label
 function showLabel(latlng, label) {
@@ -106,5 +118,42 @@ function hideLabel() {
         tooltip.removeFrom(map);
         tooltip = undefined; // Set it to undefined after removal
     }
+}
+
+
+// Create a button to clear selections
+var clearSelectionButton = L.control({ position: 'bottomleft' });
+
+clearSelectionButton.onAdd = function (map) {
+    var buttonDiv = L.DomUtil.create('div', 'clear-selection-button');
+    buttonDiv.innerHTML = '<button onclick="clearSelection()">Clear Selection</button>';
+    return buttonDiv;
+};
+
+clearSelectionButton.addTo(map);
+
+// Function to clear selections
+function clearSelection() {
+    selectedFeatures.clear();
+    updateHighlight();
+}
+
+// Function to update the list of selected features
+function updateSelectedList() {
+    const selectedList = document.getElementById('selected-list');
+    selectedList.innerHTML = ''; // Clear the existing list
+
+    selectedFeatures.forEach(feature => {
+        const listItem = document.createElement('li');
+        listItem.textContent = feature.properties.GEOID;
+        selectedList.appendChild(listItem);
+    });
+}
+
+// Function to clear selections
+function clearSelection() {
+    selectedFeatures.clear();
+    updateHighlight();
+    updateSelectedList(); // Update the list when selections are cleared
 }
 

@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-            <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Leaflet Map with D3 Bar Chart</title>
 
         <!--put your external stylesheet links here-->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="lib/leaflet/leaflet.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" /> -->
 
         <!--[if IE<9]>
             <link rel="stylesheet" href="css/style.ie.css">
@@ -21,6 +21,12 @@
 
     <body>
         <div id="map"></div>
+        <div id="info-panel" class="info-panel">
+            <h3>Selected Features:</h3>
+            <ul id="selected-list"></ul>
+        </div>
+        
+        <!-- <div id="bar-chart-container"></div> -->
         <!--put your initial page content here-->
 
         <!--you can also use this space for internal scripts;
