@@ -4,22 +4,67 @@ body {
     height: 100vh;
 }
 
-#map {
+/* #map {
     flex: 1;
     height: 100%;
+} */
+
+#map {
+    float: left;
+    width: 60%;
+    height: 500px;
+}
+
+#chart {
+    float: right;
+    width: 40%;
+    height: 500px;
 }
 
 #info-panel {
-    flex: 0 0 300px; /* Fixed width for the info-panel */
-    background-color: #f0f0f0;
-    padding: 20px;
-    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1);
+    clear: both;
+    margin-top: 20px;
 }
+
+.clear-selection-button {
+    margin: 10px;
+}
+
+/*info-panel */
+#info-panel ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#info-panel li {
+    margin-bottom: 5px;
+}
+
+/* Add this style to position the dropdown button above the chart */
+menu {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+
+/* #info-panel {
+    flex: 0 0 300px; /* Fixed width for the info-panel */
+    /* background-color: #f0f0f0; */
+    /* padding: 20px; */
+    /* box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); */
+/* } */
 
 /* Add your additional styling for #info-panel or other elements here */
 
 
-.custom-tooltip {
+/* .custom-tooltip {
     background: white;
     padding: 6px;
     border: 1px solid #ccc;
@@ -41,7 +86,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-}
+} */
 
             
 /* .custom-tooltip {

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Leaflet Map with D3 Bar Chart</title>
+        <title>Leaflet Map with Bar Chart</title>
 
         <!--put your external stylesheet links here-->
         <link rel="stylesheet" href="css/style.css">
@@ -21,10 +21,15 @@
 
     <body>
         <div id="map"></div>
-        <div id="info-panel" class="info-panel">
-            <h3>Selected Features:</h3>
-            <ul id="selected-list"></ul>
+        <div id="chart">
+            <canvas id="barChart"></canvas>
         </div>
+        <!-- <button id="switchVariableButton">Switch Variable</button> -->
+        <div id="menu">
+            <select class="menu" id="variableDropdown"></select>
+        </div>
+
+        <!-- <div id="info-panel"></div> -->
         
         <!-- <div id="bar-chart-container"></div> -->
         <!--put your initial page content here-->
@@ -37,6 +42,7 @@
         <script type="text/javascript" src="lib/d3/topojson.min.js" charset="utf-8"></script> 
         <script type="text/javascript" src="lib/leaflet/leaflet-src.js"></script>
         <script type="text/javascript" src="lib/leaflet/leaflet-providers.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
