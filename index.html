@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Leaflet Map with Bar Chart</title>
+        <title>IL Tract Data Selector</title>
 
         <!--put your external stylesheet links here-->
         <link rel="stylesheet" href="css/style.css">
@@ -20,14 +20,27 @@
     </head>
 
     <body>
-        <div id="map"></div>
-        <div id="chart">
-            <canvas id="barChart"></canvas>
+        <div id="title"><h1>IL Tract Data Selector</h1></div>
+        <div id="description">
+            <p>This map shows census tracts in the state of Illinois. It also contains data for each tract from 2010, 2015, and 2020</p>
+            <p>To visualize data in a bar chart, first select a variable from the dropdown menu, then select tracts you are interested in seeing.</p>
+            <p>The bar chart will visualize the total count for that variable (for example, total population or number of people in poverty).</p>
+            <p>You can clean your tract selection by pressing the "clear selection" button. You can change the variable shown in the bar chart by selecting a new variable from the drop down menu.</p></div>
+        <div id="map-chart-container">
+            <div id="map"></div>
+            <div id="chart">
+                <div id="chartTitle">Change Over Time - Population</div>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div id="menu">
+                <select class="menu" id="variableDropdown"></select>
+            </div>
         </div>
         <!-- <button id="switchVariableButton">Switch Variable</button> -->
-        <div id="menu">
-            <select class="menu" id="variableDropdown"></select>
-        </div>
+        <footer>
+            <p>Data from the <a href="https://www.ncei.noaa.gov/">National Oceanic and Atmospheric Administration (NOAA)</a><p>
+            <p>Webpage by <a href="mailto:donakowski@wisc.edu"> Andy Donakowski</a></p>
+          </footer> 
 
         <!-- <div id="info-panel"></div> -->
         

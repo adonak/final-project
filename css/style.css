@@ -1,109 +1,127 @@
-body {
+/* Style the title */
+#title {
+    background-color: #7da2a9;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
     margin: 0;
-    display: flex;
-    height: 100vh;
 }
 
-/* #map {
+h1 {
+    font-size: 28px;
+    margin: 0;
+    color: white;
+}
+
+/* Style the description */
+#description {
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Add spacing between paragraphs */
+#description p {
+    margin: 6px 0;
+}
+
+/* Style the container for map and bar chart */
+#map-chart-container {
+    display: flex;
+    justify-content: space-between;
+    height: 600px; /* Adjust the height as needed */
+}
+
+
+/* Style the map */
+#map {
     flex: 1;
-    height: 100%;
+    width: 48%; /* Adjust the width as needed */
+}
+
+/* #d3BarChart {
+    width: 300px;
+    height: 200px
 } */
 
-#map {
-    float: left;
-    width: 60%;
-    height: 500px;
+/* Style the dropdown menu */
+#variableDropdown {
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    /* cursor: pointer; */
 }
 
+/* Style the chart title */
+#chartTitle {
+    text-align: center;
+    font-size: 24px;
+    color: #333; /* Choose a color that complements your design */
+    margin-bottom: 20px;
+}
+
+
+/* Style the bar chart canvas */
+#barChart {
+    width: 100%;
+    height: 100%; /* Adjust the height as needed */
+}
+
+/* Style the bar chart */
 #chart {
-    float: right;
-    width: 40%;
-    height: 500px;
+    flex: 1;
+    width: 48%; /* Adjust the width as needed */
+    height: 300px;
 }
 
-#info-panel {
-    clear: both;
+/* Style the menu dropdown */
+#menu {
+    text-align: center;
     margin-top: 20px;
 }
 
-.clear-selection-button {
-    margin: 10px;
-}
-
-/*info-panel */
-#info-panel ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-#info-panel li {
-    margin-bottom: 5px;
-}
-
-/* Add this style to position the dropdown button above the chart */
-menu {
+/* Style the clear selection button */
+.clear-selection-button button {
+    /* background-color: #4CAF50; */
+    /* color: white; */
+    font-size: 16px;
     margin-top: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    padding: 10px 20px;
+    /* border: none; */
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-
-
-/* #info-panel {
-    flex: 0 0 300px; /* Fixed width for the info-panel */
-    /* background-color: #f0f0f0; */
-    /* padding: 20px; */
-    /* box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); */
-/* } */
-
-/* Add your additional styling for #info-panel or other elements here */
-
-
-/* .custom-tooltip {
-    background: white;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.clear-selection-button {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 6px;
-    border-radius: 3px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-}
-
-#selected-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* .clear-selection-button button:hover {
+    background-color: #45a049;
 } */
 
-            
-/* .custom-tooltip {
-    margin: 0 20px 0 0;
-    position: absolute;
-    height: 50px;
-    min-width: 100px;
+/* Style the footer */
+footer {
+    text-align: center;
+    background-color: #7da2a9;
     color: #fff;
-    background-color: #000;
-    border: solid thin #fff;
-    padding: 5px 10px;
-    top: -75px;
+    padding: 10px;
+    margin: 0;
+    font-size: 14px;
 }
 
-.custom-tooltip h1 {
-    margin: 0 20px 0 0;
+/* Apply general styles to the body and page content */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 0;
-    display: inline-block;
-    line-height: 1em;
-} */
+    background-color: #f7f7f7;
+    line-height: 1.5;
+}
+
+/* Style email links */
+a[href^="mailto:"] {
+    color: #4942af;
+    text-decoration: none;
+}
