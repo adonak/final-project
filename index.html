@@ -28,14 +28,17 @@
             <p>You can clean your tract selection by pressing the "clear selection" button. You can change the variable shown in the bar chart by selecting a new variable from the drop down menu.</p></div>
         <div id="map-chart-container">
             <div id="map"></div>
-            <div id="chart">
-                <div id="chartTitle">Change Over Time - Population</div>
-                <canvas id="barChart"></canvas>
+            <div id="chart-menu-container">
+                <div id="chart">
+                    <div id="chartTitle">Change Over Time - Population</div>
+                    <canvas id="barChart"></canvas>
+                    <div id="selectedGeoids"></div>
+                </div>
+                <div id="menu">
+                    <select class="menu" id="variableDropdown"></select>
+                </div>
             </div>
-            <div id="menu">
-                <select class="menu" id="variableDropdown"></select>
             </div>
-        </div>
         <!-- <button id="switchVariableButton">Switch Variable</button> -->
         <footer>
             <p>Data from the <a href="https://www.ncei.noaa.gov/">National Oceanic and Atmospheric Administration (NOAA)</a><p>
