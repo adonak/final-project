@@ -42,7 +42,7 @@ Because the typical user is hesitant of new technologies, the interface should b
 
 #### Video file
 
-<video src="../video/Final%20-%20Geog%20-%20575%20-%20Fall%202023.mp4" controls title="Title"></video>
+[Video file](../video/Final%20-%20Geog%20-%20575%20-%20Fall%202023.mp4)
 
 #### Web link for video
 
