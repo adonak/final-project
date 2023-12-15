@@ -1,16 +1,28 @@
-// Declare dropdown globally
+// declare global variables for use in script
 var dropdown;
-
-// Add a global variable to store the last selected variable
 var lastSelectedVariable;
-
-// Declare csvData globally
 var csvData;
 
 // create leaflet map
 var map = L.map('map').setView([40, -90], 6.4);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// add geocoder control
+L.Control.geocoder({
+    geocoder: L.Control.Geocoder.nominatim(),
+    defaultMarkGeocode: false,
+    placeholder: "Search for a location...",
+    collapsed: false,
+}).on('markgeocode', function (e) {
+    var latlng = e.geocode.center;
+    var zoom = 12;
+
+    // add a marker at selected location
+    L.marker(latlng).addTo(map);
+    
+    map.setView(latlng, zoom);
 }).addTo(map);
 
 var geojsonLayer;
@@ -36,7 +48,7 @@ var barChart = new Chart(barChartCanvas, {
                 beginAtZero: true
             }
         },
-        // Add the title section and set display to false
+        // set display to false so chart doesn't duplicate title
         plugins: {
             legend: {
                 display: false
@@ -45,13 +57,11 @@ var barChart = new Chart(barChartCanvas, {
     }
 });
 
-// Function to populate the dropdown menu with variables from the CSV
-// Function to populate the dropdown menu with variables from the CSV
+// function to populate dropdown menu with variables from csv
 function populateDropdown(csvData) {
     dropdown = document.getElementById('variableDropdown');
     var uniqueVariables = new Set();
 
-    // Assuming that the CSV variable names follow a pattern like "{variable}_{year}"
     csvData.forEach(function (csvRecord) {
         Object.keys(csvRecord).forEach(function (key) {
             var parts = key.split('_');
@@ -61,12 +71,12 @@ function populateDropdown(csvData) {
         });
     });
 
-    console.log('Unique Variables:', Array.from(uniqueVariables)); // Debug statement
+    // console.log('Unique Variables:', Array.from(uniqueVariables)); // debug statement
 
-    // Clear existing options
+    // clear existing options
     dropdown.innerHTML = '';
 
-    // Add options based on unique variables
+    // add options based on variables
     uniqueVariables.forEach(function (variable) {
         var option = document.createElement('option');
         option.value = variable;
@@ -74,26 +84,25 @@ function populateDropdown(csvData) {
         dropdown.add(option);
     });
 
-    // Set "Population" as the default selected option
+    // set "Population" as the default
     dropdown.value = 'Population';
 
-    // Dropdown change event to update the chart
+    // dropdown change event to update chart
     dropdown.addEventListener('change', updateChartVariable);
 
-    // Set 'Population' as the default variable for the chart
+    // set 'Population' as the default variable for chart
     lastSelectedVariable = 'Population';
     updateChartData();
 }
 
 
-// Function to update the chart based on the selected variable
+// function to update the chart based on selected variable
 function updateChartVariable() {
     lastSelectedVariable = dropdown.value || 'Population';
     document.getElementById('chartTitle').innerText = 'Change Over Time - ' + lastSelectedVariable;
 
-    // Call the chart update function here
     updateChartData();
-    console.log('Selected Variable:', lastSelectedVariable);
+    // console.log('Selected Variable:', lastSelectedVariable);  // debug statement
 }
 
 
@@ -101,7 +110,6 @@ Promise.all([
     d3.json('data/il_tracts_2020_wgs84.topojson'),
     d3.csv('data/marketCharacteristics_table.csv')
 ]).then(function ([topojsonData, loadedCsvData]) {
-    // Assign loadedCsvData to the global variable
     csvData = loadedCsvData;
     var geojsonData = topojson.feature(topojsonData, topojsonData.objects.il_tracts_2020_wgs84);
 
@@ -142,7 +150,7 @@ Promise.all([
         }
     }).addTo(map);
 
-    // Populate the dropdown menu
+    // populate dropdown menu
     populateDropdown(csvData);
 });
 
@@ -160,31 +168,30 @@ function updateChartData() {
     var selectedVariableTotal = [0, 0, 0];
 
     selectedFeatures.forEach(function (feature) {
-        // Use the last selected variable here without concatenating the year
         var selectedVariable = lastSelectedVariable;
 
-        // Find the csvRecord corresponding to the GEOID of the selected feature
+        // find the csvRecord that matches GEOID of the selected feature
         var csvRecord = csvData.find(function (csvRecord) {
             return csvRecord.geog === feature.properties.GEOID;
         });
 
         if (csvRecord) {
-            // Access the selected variable's values for each year
+            // selected variable values for each year
             var selectedVariableValue_2010 = parseInt(csvRecord[selectedVariable + '_2010'], 10) || 0;
             var selectedVariableValue_2015 = parseInt(csvRecord[selectedVariable + '_2015'], 10) || 0;
             var selectedVariableValue_2020 = parseInt(csvRecord[selectedVariable + '_2020'], 10) || 0;
 
-            // Update the array with the values for each year
+            // update array with the values for each year
             selectedVariableTotal[0] += selectedVariableValue_2010;
             selectedVariableTotal[1] += selectedVariableValue_2015;
             selectedVariableTotal[2] += selectedVariableValue_2020;
         }
     });
 
-    // Explicitly set the data for the chart's dataset
+    // set data for the chart's dataset
     barChart.data.datasets[0].data = selectedVariableTotal;
 
-    // Update the chart
+    // update chart
     barChart.update();
 }
 

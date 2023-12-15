@@ -1,4 +1,4 @@
-/* Style the title */
+/* style the title */
 #title {
     background-color: #7da2a9;
     color: #fff;
@@ -13,7 +13,7 @@ h1 {
     color: white;
 }
 
-/* Style the description */
+/* style the description */
 #description {
     width: 95%;
     margin: 0 auto;
@@ -23,75 +23,109 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Add spacing between paragraphs */
+/* add spacing between paragraphs */
 #description p {
     margin: 6px 0;
 }
 
-/* Style the container for map and bar chart */
+/* style the container for map and bar chart */
 #map-chart-container {
     display: flex;
     justify-content: space-between;
-    height: 600px; /* Adjust the height as needed */
+    height: 600px;
 }
 
 
-/* Style the map */
+/* style the map */
 #map {
     flex: 1;
-    width: 48%; /* Adjust the width as needed */
+    width: 48%;
 }
-
-/* #d3BarChart {
-    width: 300px;
-    height: 200px
-} */
 
 #chart-menu-container {
     flex: 1;
-    width: 48%; /* Adjust the width as needed */
+    width: 48%;
 }
 
-/* Style the chart title */
+/* style the chart title */
 #chartTitle {
     text-align: center;
     font-size: 24px;
-    color: #333; /* Choose a color that complements your design */
+    color: #333;
     margin-bottom: 20px;
 }
 
 
-/* Style the bar chart canvas */
+/* style the bar chart canvas */
 #barChart {
     width: 100%;
-    height: 100%; /* Adjust the height as needed */
+    height: 100%;
 }
 
-/* Style the bar chart */
+/* style the bar chart */
 #chart {
     flex: 1;
     width: 100%;
     height: 65%;
 }
 
-/* Style the menu dropdown */
+/* style the menu dropdown */
 #menu {
     text-align: center;
     margin-top: 20px;
 }
 
-/* Style the dropdown menu */
+/* style the dropdown menu */
 #variableDropdown {
     text-align: center;
     font-size: 16px;
-    margin-top: 100px;
+    margin-top: 60px;
     padding: 10px 20px;
     margin-right: 20px;
     border-radius: 5px;
     /* cursor: pointer; */
 }
 
-/* Style the clear selection button */
+/* style the geocoder container */
+.leaflet-control-geocoder-form {
+    height: 15px;
+    width: 200px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* style the geocoder input */
+.leaflet-control-geocoder-form input {
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* style the geocoder search button */
+.leaflet-control-geocoder-form button {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*style the geocoder search button on hover */
+.leaflet-control-geocoder-form button:hover {
+    background-color: #45a049;
+}
+
+
+/* style the clear selection button */
 .clear-selection-button button {
     /* background-color: #4CAF50; */
     /* color: white; */
@@ -103,11 +137,7 @@ h1 {
     cursor: pointer;
 }
 
-/* .clear-selection-button button:hover {
-    background-color: #45a049;
-} */
-
-/* Style the footer */
+/* style the footer */
 footer {
     text-align: center;
     background-color: #7da2a9;
@@ -117,7 +147,7 @@ footer {
     font-size: 14px;
 }
 
-/* Apply general styles to the body and page content */
+/* general styles for body and page content */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -126,7 +156,7 @@ body {
     line-height: 1.5;
 }
 
-/* Style email links */
+/* email links */
 a[href^="mailto:"] {
     color: #4942af;
     text-decoration: none;

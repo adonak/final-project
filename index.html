@@ -8,7 +8,7 @@
         <!--put your external stylesheet links here-->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="lib/leaflet/leaflet.css">
-        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" /> -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 
         <!--[if IE<9]>
             <link rel="stylesheet" href="css/style.ie.css">
@@ -25,7 +25,7 @@
             <p>This map shows census tracts in the state of Illinois. It also contains data for each tract from 2010, 2015, and 2020</p>
             <p>To visualize data in a bar chart, first select a variable from the dropdown menu, then select tracts you are interested in seeing.</p>
             <p>The bar chart will visualize the total count for that variable (for example, total population or number of people in poverty).</p>
-            <p>You can clean your tract selection by pressing the "clear selection" button. You can change the variable shown in the bar chart by selecting a new variable from the drop down menu.</p></div>
+            <p>You can clear your tract selection by pressing the "clear selection" button. You can change the variable shown in the bar chart by selecting a new variable from the drop down menu.</p></div>
         <div id="map-chart-container">
             <div id="map"></div>
             <div id="chart-menu-container">
@@ -39,15 +39,11 @@
                 </div>
             </div>
             </div>
-        <!-- <button id="switchVariableButton">Switch Variable</button> -->
         <footer>
-            <p>Data from the <a href="https://www.ncei.noaa.gov/">National Oceanic and Atmospheric Administration (NOAA)</a><p>
+            <p>Data from the <a href="https://www.census.gov/data.html">US Census Bureau</a><p>
             <p>Webpage by <a href="mailto:donakowski@wisc.edu"> Andy Donakowski</a></p>
           </footer> 
 
-        <!-- <div id="info-panel"></div> -->
-        
-        <!-- <div id="bar-chart-container"></div> -->
         <!--put your initial page content here-->
 
         <!--you can also use this space for internal scripts;
@@ -57,8 +53,8 @@
         <script type="text/javascript" src="lib/d3/d3.v7.min.js" charset="utf-8"></script>  
         <script type="text/javascript" src="lib/d3/topojson.min.js" charset="utf-8"></script> 
         <script type="text/javascript" src="lib/leaflet/leaflet-src.js"></script>
-        <script type="text/javascript" src="lib/leaflet/leaflet-providers.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
