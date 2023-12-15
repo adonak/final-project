@@ -6,7 +6,7 @@ Andy Donakowski, Fall 2023
 
 ## Description
 
-Throughout the year, the Illinois Housing Development Authority (the Authority) receives applications for affordable home financing. The Market and Analytics team evaluates these project applications and reviews market areas new potential sites to ensure housing in going in areas where it is needed. As part of this process, members of the team select market areas based on groupings of census tracts around the proposed site and explore economic and demographic characteristics for the area. Typically this is down with a computer script that creates a spreadsheet with relevant information. However, it has been proposed that enhanced visualization could improve the evaluation process. It is suggested that an interactive map with corresponding data visualization could allow the analysts to better explore the market areas.
+Throughout the year, the Illinois Housing Development Authority (the Authority) receives applications for affordable home financing. The Market and Analytics team evaluates these project applications and reviews market areas and potential sites to ensure housing is going in areas where it is needed. As part of this process, members of the team select market areas based on groupings of census tracts around the proposed site and explore economic and demographic characteristics for the area. Typically this is down with a computer script that creates a spreadsheet with relevant information. However, it has been proposed that enhanced visualization could improve the evaluation process. It is suggested that an interactive map with corresponding data visualization could allow the analysts to better explore the market areas
 
 ### Persona
 
